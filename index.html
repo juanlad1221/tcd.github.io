@@ -24,14 +24,14 @@
 	<body style="background: rgb(63,94,251);background: linear-gradient(90deg, rgba(63,94,251,1) 8%, rgba(157,28,143,1) 70%);">
 	
 	<h1 id="titulo"></h1>
-		<div style="width:100%; text-align:center;margin-top:25%" class="bt p-3">
+		<div style="width:100%; text-align:center;margin-top:25%" class="bt p-3" id="logo1">
 			<h1 class="fonts_">TCD HD</h1>
 		</div>
     <div id="live"></div>
     <p id="descrip"></p>
 	
 		
-	<div style="width:100%;text-align:center;margin-top:10%" class="column bt p-3">
+	<div style="width:100%;text-align:center;margin-top:10%" class="column bt p-3" id="logo2">
 		<h4 style="color:white">CHACO - ARGENTINA</h4>
 		<p style="margin-top:20%;color:white">Developed by BPCode</p>
 	</div>
@@ -67,6 +67,7 @@
                 key: "$534407332209874",
 							}
 							)};
+		
         </script>
        
 	      <script>
@@ -87,6 +88,27 @@
             }
           });
         }
+		      
+		      
+	//Controla la orientacion
+	var grados = 0;
+
+window.addEventListener("orientationchange", function(event) {
+  if ( event.target.screen.orientation.angle === 0){
+      grados = 0
+      document.getElementById('logo1').removeAttribute('hidden')
+      document.getElementById('logo2').removeAttribute('hidden')
+      console.log(grados)
+  }
+  if ( event.target.screen.orientation.angle === 90){
+      grados = 90
+      document.getElementById('logo1').setAttribute('hidden',true)
+      document.getElementById('logo2').setAttribute('hidden',true)
+      console.log(grados)
+  }
+});
+		      
+		      
     </script>
 		
 <style>
