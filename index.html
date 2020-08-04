@@ -1,131 +1,152 @@
 <!DOCTYPE html>
+<html lang="en">
 <head>
-<title>Transmisión en vivo</title>
-    <meta charset="utf-8">
-    <!-- Optimizacion Moviles -->
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<!-- Player -->
-	<link rel="stylesheet" href="skin/skin.css">
-	<!-- CSS only -->
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-	<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
-	<script src="https://releases.flowplayer.org/7.2.7/commercial/flowplayer.min.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/hls.js/0.8.9/hls.light.min.js"></script>
-	<!-- <script src="//releases.flowplayer.org/hlsjs/flowplayer.hlsjs.min.js"></script> -->
-	
-	<style type="text/css">
-        body { margin:0 auto; padding:0; background:#EEE; overflow: hidden; }
-        #titulo { font:bold 24px/36px Arial, sans-serif; color:#000; margin:40px auto 10px auto; display:none; text-shadow:#FFF 2px 2px 0; }
-        #descrip { font:13px/20px Arial, sans-serif; margin:15px auto; display:none; text-shadow:#FFF 1px 1px 0; }
-    </style>
-	
+    <title>TCD HD</title>
+    
+    <link href="https://vjs.zencdn.net/7.8.4/video-js.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+  
 </head>
+<body style="background: black">
+    
+    
 
-	<body style="background:#B51ADB;">
-	
-	<h1 id="titulo"></h1>
-		<div style="width:100%; text-align:center;margin-top:20%; margin-bottom:5%" class="p-2" id="logo1">
-			<h1 class="fonts_">TCD HD</h1>
-		</div>
-    <div id="live"></div>
-    <p id="descrip"></p>
-	
-		
-	<div style="width:100%;text-align:center;margin-top:10%" class="column p-4" id="logo2">
-		<h4 style="color:white">CHACO - ARGENTINA</h4>
-		<p style="margin-top:25%;color:white">Developed by BP-Code</p>
-	</div>
-		
-		
-		
-		
-		
-		
-        <script >
-            window.onload = function () {
-            //Instancia FlowPlayer
-            flowplayer("#live", {
-                clip: {
-					hlsjs: {
-					safari: true,
-					recoverMediaError: true,
-					recoverNetworkError: true,
-						},
-                    sources: [{ type: "application/x-mpegurl",
-                          src:  "https://59d52c5a5ce5e.streamlock.net:4443/tcd/tcd/playlist.m3u8" 
-						  }]
-                },
-                live: true,
-				autoplay: true,
-                share: false,
-				aspectRatio: "16:9",
-                volume: 1,
-				chromecast: true,
-				 fullscreen: true,
-				volume: 1,
-                                native_fullscreen: true,
-                key: "$534407332209874",
-							}
-							)};
-		
-        </script>
-       
-	      <script>
-        if (window == window.top) {
-            document.getElementById("titulo").style.display = "none";
-            document.getElementById("descrip").style.display = "block";
-            document.body.style.width = "100%";
-        } else {
-          /** Used to pass play/pause messages parent iframe via postMessage **/
-          window.addEventListener("message", function(evt) {
-            switch (evt.data) {
-              case "play":
-                jwplayer().play();
-                break;
-              case "pause":
-                jwplayer().pause();
-                break;
-            }
-          });
-        }
-		      
-		      
-	//Controla la orientacion
-	var grados = 0;
+    
 
-window.addEventListener("orientationchange", function(event) {
+    <div class="container-juan">
+
+        <div class="area" id="logo" style="background: cadetblue; margin-bottom: 3%; text-align: center;">
+            <img src="./images/logo.png" alt="" width="50%" >
+        </div>
+
+        <div class="embed-container">
+            <iframe id="iframe" class="" 
+                src="https://arcast.net/tcd"  width="560" height="315"
+                frameborder="0" allowfullscreen="allowfullscreen"  >
+            </iframe>
+        </div>
+        
+        
+        <div class="area font white" id="logo" style="background: cadetblue; margin-top: 3%; text-align: center;">
+            <p style="font-size: 70%; margin-top: 10%;">Chaco - Argentina</p>
+            <p style="margin-top: 30%; font-size:10%;">Developed by BP-Code</p>
+        </div>
+    
+    </div>
+    
+    
+
+    
+    
+</body>
+
+</html>
+
+<style>
+    @font-face {
+            font-family: 'STEPS';
+            src: url('./fonts/STEPS-ItalicTracked.ttf');
+                 
+    }
+
+    body, html {
+    height: 100%;
+    }
+    .bt{
+        border: 1px solid blue;
+    }
+    .bt2{
+        border: 1px solid green;
+    }
+
+    .container-juan{
+        /*width: 100%;*/
+        /*height: 100%;*/
+        display: flex;
+        flex-direction: column;
+        min-height:100%;
+    }
+
+    .area{
+       /* height: 30%;*/
+        /*display: flex;
+        align-items: center;
+        justify-content: center;*/
+        flex-grow: 1;
+        flex-basis: 0;
+        /*flex-direction: column;*/
+        /*display: flex;
+        flex: 1;*/
+    }
+    /*.frame_{
+        height: 32%;
+    }
+    .frame2_{
+        height: 315px;
+    }*/
+    .white{
+        color: white;
+    }
+    .font{
+        font-family: STEPS;
+    }
+
+    .embed-container {
+    position: relative;
+    padding-bottom: 56.25%;
+    height: 0;
+    overflow: hidden;
+    
+}
+.embed-container iframe {
+    position: absolute;
+    top:0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+    
+</style>
+
+<script>
+var grados = 0;
+
+    window.addEventListener("orientationchange", function(event) {
   if ( event.target.screen.orientation.angle === 0){
       grados = 0
-      document.getElementById('logo1').removeAttribute('hidden')
-      document.getElementById('logo2').removeAttribute('hidden')
-      console.log(grados)
+      //document.getElementById('iframe').classList.remove('frame2_')
+      //document.getElementById('iframe').classList.add('frame_')
+
+      document.getElementById('logo').removeAttribute('hidden')
+      //document.getElementById('logo2').removeAttribute('hidden')
+      //document.getElementById('iframe').setAttribute('width:', width_)
+      //document.getElementById('iframe').setAttribute('height:', height_)
+      console.log(screen.width,screen.height)
   }
   if ( event.target.screen.orientation.angle === 90){
       grados = 90
-      document.getElementById('logo1').setAttribute('hidden',true)
-      document.getElementById('logo2').setAttribute('hidden',true)
-      console.log(grados)
+      //document.getElementById('iframe').classList.remove('frame_')
+      //document.getElementById('iframe').classList.add('frame2_')
+      document.getElementById('logo').setAttribute('hidden',true)
+      //document.getElementById('logo2').setAttribute('hidden',true)
+
+      //document.getElementById('iframe').removeAttribute('width')
+      //document.getElementById('iframe').removeAttribute('height')
+      //document.getElementById('bo').setAttribute('height:', '0%')
+      //document.getElementById('iframe').setAttribute('width:', width_)
+      //document.getElementById('iframe').setAttribute('height:', height_)
+      console.log(screen.width,screen.height)
   }
 });
-		      
-		      
-    </script>
-		
-<style>
-	@font-face {
-  font-family: "Tcd";
-  src: url("fonts/STEPS-ItalicTracked.woff");
+
+
+function width_(){
+    return screen.width - 5
 }
-.fonts_{
-	font-family: "Tcd";
-	font-size: 220%;
-	color:white;
-	}
-.bt{
-	border:1px solid blue;
-	}
-</style>
-	
-	
-	</body>
-</html>
+function height_(){
+    return '100%'//screen.height - 5
+}
+</script>
