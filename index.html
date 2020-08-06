@@ -7,21 +7,24 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
 </head>
 
-<body style="background: black; display: flex; flex-direction: column;">
+<body style="background: black; display: flex; flex-direction: column; 
+align-items: center; justify-content: center;">
     
 <!--background: rgb(31, 28, 28);-->
-    <div id="logo" style="background: cadetblue; text-align: center; padding-top: 2%;" 
-    class="area">
+    <div id="logo" style="background: cadetblue; display: flex;
+    flex-direction: column; justify-content: center; align-items: center;" class="area">
         <img src="./images/logo.png" width="50%">
     </div>
 
-    <div id="cont-video" style=" width: 100%; padding: 3%;">
+    <div id="cont-video" style=" width: 95%; padding: 3%;">
 
-       <div class="embed-container" >
+       <div class="embed-container">
+           <!--<p style="text-align: center;">  padding-top: 3%; padding-bottom: 3%;-->
             <iframe id="iframe" class="" 
                 src="https://arcast.net/tcd"  
                 frameborder="0"   >
             </iframe>
+           <!-- </p>-->
         </div>
 
     </div>
@@ -57,6 +60,7 @@
     .area{
         flex-grow: 1;
         flex-basis: 0;
+        width: 100%;
     }
     
     .white{
@@ -92,7 +96,7 @@
       grados = 0
       document.getElementById('logo').removeAttribute('hidden')
       document.getElementById('logo2').removeAttribute('hidden')
-      document.getElementById('cont-video').style.padding = '3%' 
+      //document.getElementById('cont-video').style.padding = '3%' 
       //window.addEventListener('scroll', disableScroll);           
     }
 
@@ -100,7 +104,8 @@
       grados = 90
       document.getElementById('logo').setAttribute('hidden',true)
       document.getElementById('logo2').setAttribute('hidden',true)
-      document.getElementById('cont-video').style.padding = '1%'
+      //document.getElementById('cont-video').style.height = '95%'
+      //document.getElementById('cont-video').style.padding = '1%'
       //window.addEventListener('scroll', ponerScroll);
       //console.log(event.target.screen.orientation)
     }
